@@ -1,0 +1,70 @@
+.dash-body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+    background-color: transparent;
+    margin-left: 0;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.card {
+    background-color: #b4e5c1;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: 10px; /* Adds some space between the cards */
+}
+
+.icon {
+    font-size: 48px;
+    color: #333;
+}
+
+.button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Media Query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .dash-body {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        height: auto; /* Allow the height to adjust based on content */
+    }
+
+    .card {
+        width: 80%; /* Make cards responsive by taking 80% width of the container */
+        margin: 10px 0; /* Reduce margins between cards */
+    }
+
+    .icon {
+        font-size: 40px; /* Smaller icon size for smaller screens */
+    }
+
+    .button {
+        padding: 8px 16px; /* Adjust button padding for smaller screens */
+    }
+}
+
+/* Media Query for mobile phones */
+@media (max-width: 480px) {
+    .card {
+        width: 90%; /* Further reduce card width on very small screens */
+    }
+
+    .icon {
+        font-size: 36px; /* Make the icon smaller on small phones */
+    }
+
+    .button {
+        padding: 6px 12px; /* Further reduce button padding */
+    }
+}
