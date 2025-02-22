@@ -35,7 +35,6 @@ export default function Sidebar() {
                             <li><Link to={"/sidebar/dashboard"}>Dashboard</Link></li>
                             <li><Link to={"/sidebar/add-product"}>Add Product</Link></li>
                             <li><Link to={"/sidebar/products"}>Products</Link></li>
-                            <li><Link to={"/sidebar/orderdetails"}>Order Details</Link></li>
                             <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
                         </ul>
                     </nav>
