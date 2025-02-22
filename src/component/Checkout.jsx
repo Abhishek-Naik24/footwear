@@ -142,12 +142,6 @@ function Checkout() {
             "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
             "handler": function (response) {
                 if (response) {
-                    const { isCheck, ...Order } = Data
-                    const order = { ...Order, total: Amount.total, product: cart }
-                    axios.post("https://66f7930db5d85f31a34301a2.mockapi.io/UserData", order)
-                        .then((res) => {
-                            console.log(res.data);
-                        })
                     navigate('/thankyou')
                     dispatch(EmptyCart())
                 }

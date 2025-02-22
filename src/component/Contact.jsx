@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Contact() {
 	return (
-		<div>
+		<div className='container-fluid'>
 			{/* <div className="colorlib-loader"></div> */}
 			<div className="breadcrumbs">
 				<div className="container">
@@ -14,9 +14,7 @@ export default function Contact() {
 					</div>
 				</div>
 			</div>
-
-
-			<div id="colorlib-contact">
+			<div className='contact-section mt-2'>
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-12">

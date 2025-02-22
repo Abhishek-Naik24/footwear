@@ -10573,7 +10573,7 @@ h5,
 }
 
 .colorlib-nav .top-menu {
-  padding: 10px 105px;
+  padding: 15px 105px;
 }
 
 @media (max-width: 767.98px) {
@@ -12130,7 +12130,7 @@ input[type="text"] {
 }
 
 #colorlib-footer {
-  padding: 10px 105px;
+  padding: 100px 105px;
 }
 
 #colorlib-footer h4 {

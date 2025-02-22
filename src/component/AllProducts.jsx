@@ -10,32 +10,16 @@ function AllProducts() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [searchTerm, setSearchTerm] = useState({
-        title: '',
-        brand: '',
-        category: '',
-        size: '',
-        color: ''
-    });
+    const [searchTerm, setSearchTerm] = useState("");
     const [sortOrder, setsortOrder] = useState([]);
 
-    const { title, brand, category, size, color } = searchTerm
 
     // product filteration logic
     const filteredProducts = Product.filter((product) =>
-        (!title || product.title.toLowerCase().includes(title.toLowerCase())) &&
-        (!brand || product.brand.toLowerCase() === brand.toLowerCase()) &&
-        (!category || product.category.toLowerCase() === category.toLowerCase()) &&
-        (!size || product.size.toLowerCase().includes(size.toLowerCase())) &&
-        (!color || product.color.toLowerCase().includes(color.toLowerCase()))
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // sorting logic
-    if (sortOrder === "price-asc-rank") {
-        filteredProducts.sort((a, b) => a.price - b.price);
-    } else if (sortOrder === "price-desc-rank") {
-        filteredProducts.sort((a, b) => b.price - a.price);
-    }
+
 
     // Pagination Logic
     const [currentPage, setcurrentPage] = useState(1)
@@ -151,18 +135,9 @@ function AllProducts() {
                     <div className="row">
                         <div className="col-12 d-flex">
                             <div className="col-lg-9">
-                                <input className="form-control" type="text" placeholder="Seacrh" fdprocessedid="slqfdt" value={title} onChange={(e) => setSearchTerm({ title: e.target.value })} />
+                                <input className="form-control" type="text" placeholder="Seacrh" fdprocessedid="slqfdt" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                             </div>
-                            <div className="col-lg-3 d-flex align-items-center" style={{ padding: "10px" }}>
-                                <label htmlFor="s-result-sort-select" className="me-2 mt-2" style={{ fontWeight: "bold" }}>Sort by:</label>
-                                <div className="a-dropdown-container">
-                                    <select name="s" autoComplete="off" id="s-result-sort-select" onClick={(e)=>setsortOrder(e.target.value)} tabIndex="0" data-action="a-dropdown-select" className="a-native-dropdown a-declarative form-select" fdprocessedid="4p0r4m" style={{ borderRadius: "50px", padding: "5px 20px", backgroundColor: "rgb(248, 249, 250)", border: "1px solid rgb(206, 212, 218)", appearance: "none" }}>
-                                        <option value="relevanceblender">Featured</option>
-                                        <option value="price-asc-rank">Price: Low to High</option>
-                                        <option value="price-desc-rank">Price: High to Low</option>
-                                    </select>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -173,9 +148,9 @@ function AllProducts() {
                                     <div className="side border mb-1">
                                         <h3>Category</h3>
                                         <ul>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="etlq0h" onClick={() => setSearchTerm({ category: 'Men' })}>Male</button></li>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="0rbzzy" onClick={() => setSearchTerm({ category: 'Women' })}>Female</button></li>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="0rbzzy" onClick={() => setSearchTerm({ category: 'Kids' })}>Kids</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="etlq0h">Male</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="0rbzzy" >Female</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="0rbzzy">Kids</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -183,10 +158,10 @@ function AllProducts() {
                                     <div className="side border mb-1">
                                         <h3>Brand</h3>
                                         <ul>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="mi1sc" onClick={() => setSearchTerm({ brand: 'Adidas' })}>Adidas</button></li>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="d7x55" onClick={() => setSearchTerm({ brand: 'Bata' })}>Bata</button></li>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="lvpor" onClick={() => setSearchTerm({ brand: 'Nike' })}>Nike</button></li>
-                                            <li><button className="btn p-0 text-secondary" fdprocessedid="6mewb" onClick={() => setSearchTerm({ brand: 'Puma' })}>Puma</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="mi1sc" >Adidas</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="d7x55" >Bata</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="lvpor" >Nike</button></li>
+                                            <li><button className="btn p-0 text-secondary" fdprocessedid="6mewb" >Puma</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -196,11 +171,11 @@ function AllProducts() {
                                         <div className="block-26 mb-2">
                                             <h4>Size</h4>
                                             <ul>
-                                                <li className={size==='6'?"active":''}><a  href="#" onClick={() => setSearchTerm({ size: '6' })}>6</a></li>
-                                                <li className={size==='7'?"active":''}><a href="#" onClick={() => setSearchTerm({ size: '7' })}>7</a></li>
-                                                <li className={size==='8'?"active":''}><a href="#" onClick={() => setSearchTerm({ size: '8' })}>8</a></li>
-                                                <li className={size==='9'?"active":''}><a href="#" onClick={() => setSearchTerm({ size: '9' })}>9</a></li>
-                                                <li className={size==='10'?"active":''}><a href="#" onClick={() => setSearchTerm({ size: '10' })}>10</a></li>
+                                                <li ><a href="#" >6</a></li>
+                                                <li ><a href="#" >7</a></li>
+                                                <li ><a href="#" >8</a></li>
+                                                <li ><a href="#" >9</a></li>
+                                                <li ><a href="#" >10</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -209,15 +184,15 @@ function AllProducts() {
                                     <div className="side border mb-1">
                                         <h3>Colors</h3>
                                         <ul>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Black' })}>Black</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'White' })}>White</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Blue' })}>Blue</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Red' })}>Red</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Green' })}>Green</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Grey' })}>Grey</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Orange' })}>Orange</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Cream' })}>Cream</a></li>
-                                            <li><a href="#" onClick={() => setSearchTerm({ color: 'Brown' })}>Brown</a></li>
+                                            <li><a href="#" >Black</a></li>
+                                            <li><a href="#" >White</a></li>
+                                            <li><a href="#" >Blue</a></li>
+                                            <li><a href="#" >Red</a></li>
+                                            <li><a href="#" >Green</a></li>
+                                            <li><a href="#" >Grey</a></li>
+                                            <li><a href="#" >Orange</a></li>
+                                            <li><a href="#" >Cream</a></li>
+                                            <li><a href="#" >Brown</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -251,9 +226,7 @@ function AllProducts() {
                                                     </div>
                                                 )
                                             }) :
-                                            <div className="alert alert-warning text-center mt-4" role="alert">
-                                                <i className="bi bi-exclamation-triangle"></i> No Product Found in this {category?'Category':brand?'Brand':size?'Size':color?'Color':'Section'} !
-                                            </div>
+                                            ""
                                 }
                             </div>
                             {
@@ -262,7 +235,7 @@ function AllProducts() {
                                         <div className="col-md-12 text-center">
                                             <div className="block-27">
                                                 <ul>
-                                                    <li onClick={handlePrevious} style={{ cursor: currentPage === totalPages ? 'default' : 'pointer' }}><a ><i className="ion-ios-arrow-back"></i></a></li>
+                                                    <li onClick={handlePrevious} ><a href='#' style={{ cursor: currentPage === 1 ? 'default' : 'pointer' }}><i className="ion-ios-arrow-back"></i></a></li>
                                                     {
                                                         Array.from({ length: totalPages }, (_, index) => (
                                                             <>
@@ -270,7 +243,7 @@ function AllProducts() {
                                                             </>
                                                         ))
                                                     }
-                                                    <li onClick={handleNext} style={{ cursor: currentPage === totalPages ? 'default' : 'pointer' }}><a href='#'><i className="ion-ios-arrow-forward"></i></a></li>
+                                                    <li onClick={handleNext} ><a href='#' style={{ cursor: currentPage === totalPages ? 'default' : 'pointer' }}><i className="ion-ios-arrow-forward"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
