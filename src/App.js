@@ -35,6 +35,7 @@ import OrderComplete from './component/OrderComplete';
 import ProductDetail from './component/ProductDetail';
 import AllProducts from './component/AllProducts';
 import React, { Suspense } from 'react';
+import OrderDetails from './component/Admin/OrderDetails';
 
 let Home = React.lazy(() => import('./component/Home'))
 let Men = React.lazy(() => import('./component/Men'))
@@ -62,6 +63,7 @@ function App() {
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='add-product' element={<AddProduct />} />
             <Route path='products' element={<Products />} />
+            <Route path='orderdetails' element={<OrderDetails />} />
           </Route>
           <Route path='/cart' element={<Suspense fallback={<div className='colorlib-loader'></div>}><Cart /></Suspense>} />
           <Route path='/checkout' element={<Checkout />} />
